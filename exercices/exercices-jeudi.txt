@@ -1,0 +1,23 @@
+Exercice 0 :
+
+- créer une page index.php
+-- 3 liens : 
+   exercices/exo1.php
+   exercices/exo2.php
+   exercices/exo3.php
+
+Exercice 1 :
+
+Sur la page exo1.php, afficher un tableau (10X10) de 100 cases contenant les nombres de 1 à 100 
+
+Exercice 2 (exo2.php) :
+
+En partant du tableau précédent :
+- ajouter à la fin de chaque ligne la somme des valeurs de la ligne
+- ajouter en bas de chaque colonne, la somme des valeurs de la colonne
+
+Exercice 3 (exo3.php) :
+
+A partir du tableau précédent, afficher en gras (ou couleur différente) les nombres premiers
+
+Nombre premier : nombre qui est divisible uniquement par 1 et par lui-même.

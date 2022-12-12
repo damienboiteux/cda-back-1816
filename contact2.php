@@ -34,8 +34,7 @@ if (!empty($_POST)) {
         <input type="text" name="nom" value="" id="nom" class="form-control" placeholder="Votre nom" />
     </div>
 
-    <!-- <input type="submit" value="Valider" /> -->
-    <button class="btn btn-primary mt-4">Valider</button>
+    <?= addButton("Soumettre", "danger"); ?>
 
 </form>
 <?php require './footer.php'; ?>

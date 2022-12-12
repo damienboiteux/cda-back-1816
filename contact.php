@@ -8,7 +8,7 @@ require "utils/affichage.php";
 if (!empty($_POST)) {
     // Traitement des valeurs transmises par le formulaire
 
-    // var_dump($_POST);
+    var_dump($_POST);
 
     // Contrôles des valeurs transmises
 
@@ -67,8 +67,26 @@ if (!empty($_POST)) {
     // Code postaux
     // Référence d'un produit, exemple : S123-20-000123
 
+
+    // preg_match("/^(?:0[1-9]|[1-8][0-9]|9[01234578])\d{3}$/", $code_postal);
+
+    if (empty($message)) {
+        $error['message'] = "Le message est obligatoire";
+    }
+
+    // Case à cocher (checkbox)
+
+    if (isset($_POST['accepte'])) {
+        // la case est cochée
+    } else {
+        // la case n'est pas cochée
+    }
+
     // Si aucune erreur
+    // -> utilisation des données
     // -> Ecriture en BDD (Model)
+
+
 }
 
 
@@ -106,7 +124,28 @@ if (!empty($_POST)) {
     );
     ?>
 
-    <?= addButton("Envoyer", "success"); ?>
 
+    <div class="form-group">
+        <label for="message" class="form-label">Votre Message</label>
+        <textarea name="message" id="message" cols="30" rows="10" class="form-control"><?= isset($message) ? $message : ''; ?></textarea>
+    </div>
+    <div>
+        <?= empty($error['message']) ? '' : $error['message']; ?>
+    </div>
+
+    <!-- transformer en fonction addTextarea -->
+
+    <div class="form-group">
+        <input type="checkbox" name="accepte" id="accepte" class="">
+        <label for="accepte" class="form-label">J'accepte d'être recontacté</label>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" name="accepte2" id="accepte2" class="">
+        <label for="accepte2" class="form-label">J'ai lu et j'accepte les CGV</label>
+    </div>
+
+    <?= addButton("Envoyer", "success"); ?>
 </form>
+
 <?php require './footer.php'; ?>

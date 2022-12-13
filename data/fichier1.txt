@@ -1,0 +1,9 @@
+Paul
+Dupont
+27
+Paris
+------------
+Pierre
+Dubois
+87
+Marseille

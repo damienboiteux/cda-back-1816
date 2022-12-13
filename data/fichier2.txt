@@ -1,0 +1,30 @@
+Ligne ter  0
+Ligne ter  1
+Ligne ter  2
+Ligne ter  3
+Ligne ter  4
+Ligne ter  0
+Ligne ter  1
+Ligne ter  2
+Ligne ter  3
+Ligne ter  4
+Ligne ter  0
+Ligne ter  1
+Ligne ter  2
+Ligne ter  3
+Ligne ter  4
+Ligne 0 -> ok 
+Ligne 1 -> ok 
+Ligne 2 -> ok 
+Ligne 3 -> ok 
+Ligne 4 -> ok 
+Ligne 0 -> ok 
+Ligne 1 -> ok 
+Ligne 2 -> ok 
+Ligne 3 -> ok 
+Ligne 4 -> ok 
+Ligne 0 -> ok 
+Ligne 1 -> ok 
+Ligne 2 -> ok 
+Ligne 3 -> ok 
+Ligne 4 -> ok 

@@ -30,6 +30,9 @@ if (!empty($_POST)) {
     } elseif ($_POST['mdp'] != $_POST['mdp2']) {
         $error['mdp2'] = "Les mots de passe ne correspondent pas";
     }
+
+    // Qu'est-ce qu'on fait des données ?
+
 }
 
 

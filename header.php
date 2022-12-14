@@ -30,12 +30,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
+                    <?php
+
+                    $dsn = "mysql:host=localhost;dbname=phpcda;charset=utf8";
+                    $username = "root";
+                    $password = "";
+
+                    require 'utils/bdd.php';
+
+                    $sql = "SELECT * FROM categorie";
+                    $categories = $pdo->query($sql);
+
+                    ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Exercices</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/exercices/exo1.php">Exercice 1</a>
-                            <a class="dropdown-item" href="/exercices/exo2.php">Exercice 2</a>
-                            <a class="dropdown-item" href="/exercices/exo3.php">Exercice 3</a>
+                            <!-- <a class="dropdown-item" href="/produits.php?cat=1">Homme</a>
+                            <a class="dropdown-item" href="/produits.php?cat=2">Femme</a>
+                            <a class="dropdown-item" href="/produits.php?cat=3">Enfant</a> -->
+                            <?php while ($categorie = $categories->fetch(PDO::FETCH_OBJ)) { ?>
+                                <a class="dropdown-item" href="/produits.php?cat=<?= $categorie->id; ?>"><?= $categorie->libelle; ?></a>
+                            <?php } ?>
                         </div>
                     </li>
                 </ul>

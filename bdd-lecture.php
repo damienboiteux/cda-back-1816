@@ -51,7 +51,7 @@ class Categorie
 
     public function showLabel()
     {
-        echo strtoupper($this->libelle);
+        return strtoupper($this->libelle);
     }
 }
 
@@ -59,16 +59,29 @@ $sql = "SELECT * FROM categorie";
 
 $resultat = $pdo->query($sql);
 
+// PDO::FETCH_ASSOC : chaque ligne est dans un tableau associatif
+// $categories = $resultat->fetchAll(PDO::FETCH_ASSOC);
+// echo '<select>';
+// foreach ($categories as $categorie) {
+//     echo '<option value="' . $categorie['id'] . '">' . $categorie['libelle'] . '</option>';
+// }
+// echo '<select>';
+
+// PDO::FETCH_CLASS : chaque ligne est dans un objet de classe Categorie
 // $categories = $resultat->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+// echo '<select>';
+// foreach ($categories as $categorie) {
+//     echo '<option value="' . $categorie->id . '">' . $categorie->showLabel() . '</option>';
+// }
+// echo '<select>';
+// var_dump($categories);
 
-$categories = $resultat->fetchAll(PDO::FETCH_ASSOC);
+// Ligne par ligne
+// $resultat->setFetchMode(PDO::FETCH_CLASS, 'Categorie');
+// while ($data = $resultat->fetch(PDO::FETCH_CLASS)) {
+//     var_dump($data);
+//     echo '<hr />';
+// }
 
-echo '<select>';
-foreach ($categories as $categorie) {
-    echo '<option value="' . $categorie['id'] . '">' . $categorie['libelle'] . '</option>';
-}
-echo '<select>';
-
-
-
-var_dump($categories);
+// Fermeture
+unset($pdo);

@@ -32,7 +32,36 @@ if (!empty($_POST)) {
     }
 
     // Qu'est-ce qu'on fait des données ?
+    // Si aucune erreur
+    if (!isset($error)) {
+        // Ecrire dans la BDD
+        require 'utils/bdd.php';
 
+        // Paramètres par position
+        // $sql = "INSERT INTO client (code_client, nom, prenom, email) VALUES ( ?, ?, ?, ?);";
+        // $stmt = $pdo->prepare($sql);
+
+        // $stmt->execute([
+        //     "CODE",
+        //     $identifiant,
+        //     "Paul",
+        //     $email
+        // ]);
+
+        // Parmètres nommés
+        $sql = "INSERT INTO client (code_client, nom, prenom, email) VALUES ( :code_client, :nom, :prenom, :email);";
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute([
+            "code_client" => "CODE2",
+            "nom" => $identifiant,
+            "prenom" => "Paul",
+            "email" => $email
+        ]);
+
+
+        header('Location: index.php');
+    };
 }
 
 

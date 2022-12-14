@@ -3,9 +3,9 @@
 class Utilisateur
 {
 
-    public $identifiant;
-    public $email;
-    public $role = "Client";
+    // public $identifiant;
+    // public $email;
+    // public $role = "Client";
 
     public function afficheRole(): string
     {
@@ -17,11 +17,41 @@ class Utilisateur
         return "Liste des connexions";
     }
 
-    public function __construct($arg1, $arg2, $arg3 = "Client")
+    // public function __construct($identifiant, $email, $role = "Client")
+    // {
+    //     // $this->identifiant = $identifiant;
+    //     // $this->email = $email;
+    //     // $this->role = $role;
+    // }
+
+    // A partir de PHP 8.0.0
+    public function __construct(
+        public string $identifiant,
+        public string $email,
+        protected string $role = "Client"
+    ) {
+    }
+
+    public function getRole(): string
     {
-        $this->identifiant = $arg1;
-        $this->email = $arg2;
-        $this->role = $arg3;
+        return $this->role;
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+}
+
+class Administrateur extends Utilisateur
+{
+    private $droits;
+    public function methodeSpecifique()
+    {
+    }
+    public function getRoleAdmin()
+    {
+        return $this->role;
     }
 }
 
@@ -37,6 +67,11 @@ var_dump($user1);
 
 echo $user1->afficheRole();
 
-$user2 = new Utilisateur("jean", "jean@free.fr");
+$user2 = new Administrateur("jean", "jean@free.fr");
+// $user2->role = "Administrateur";
+$user2->setRole("Administrateur");
+
+// echo $user2->role;
+echo $user2->getRoleAdmin();
 
 var_dump($user2);

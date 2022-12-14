@@ -27,13 +27,12 @@ class Utilisateur
 
 
 
-$user1 = new Utilisateur("bob", "bob@sfr.fr", "Fournisseur");
-
-
+// $user1 = new Utilisateur();
 // $user1->identifiant = "bob";
 // $user1->email = "bob@sfr.fr";
 // $user1->role = "Fournisseur";
 
+$user1 = new Utilisateur("bob", "bob@sfr.fr", "Fournisseur");
 var_dump($user1);
 
 echo $user1->afficheRole();

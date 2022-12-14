@@ -20,3 +20,5 @@
     6 - Fermeture de la connexion
 
 */
+
+// 1 - Ouverture de la connexion

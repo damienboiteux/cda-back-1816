@@ -104,6 +104,9 @@ $fichier = "data/fichier1.txt";
 // $handler = fopen($fichier, $mode);
 
 // while ($data = fgetcsv($handler)) {
+//     if (isset($data[2]) && $data[2] == 32) {
+//         echo "$data[0] a 32 ans";
+//     }
 //     var_dump($data);
 // };
 
@@ -111,7 +114,7 @@ $mode = "a";
 $fichier = "data/fichier.csv";
 $handler = fopen($fichier, $mode);
 
-$ligne = ['Marie', 'Dubois', 32, 'Nice'];
+$ligne = ['Pierrette', 'Dubois', 78, 'Nice'];
 fputcsv($handler, $ligne);
 
 fclose($handler);  // exécuter automatiquement en fin de script

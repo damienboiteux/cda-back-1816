@@ -1,5 +1,7 @@
 <?php
 
+// require 'required.php';
+
 require './header.php';
 require 'utils/bdd.php';
 

@@ -22,12 +22,24 @@ if (!empty($_POST)) {
         $error['reference'] = "La référence est obligatoire";
     } elseif (!preg_match('/^[a-zA-Z0-9]{4}$/', $reference)) {
         $error['reference'] = "Référence incorrecte";
+    } else {
+        $sql = "SELECT count(*) FROM produit WHERE reference = '" . $reference . "'";
+        $requete = $pdo->query($sql);
+        if ($requete->fetch(PDO::FETCH_COLUMN) != 0) {
+            $error['reference'] = "Cette référence est déjà connue";
+        }
     }
 
     if (empty($nom)) {
         $error['nom'] = "Le nom est obligatoire";
     } elseif (!preg_match('/^[a-zA-Z0-9 -\']{4,64}$/', $nom)) {
         $error['nom'] = "Nom incorrect";
+    } else {
+        $sql = "SELECT count(*) FROM produit WHERE nom = '" . $nom . "'";
+        $requete = $pdo->query($sql);
+        if ($requete->fetch(PDO::FETCH_COLUMN) != 0) {
+            $error['nom'] = "Ce produit existe déjà";
+        }
     }
 
     if (empty($description)) {
@@ -48,7 +60,6 @@ if (!empty($_POST)) {
         }
     }
 
-
     if (empty($_FILES['image']['name'])) {
         $error['image'] = "L'image est obligatoire";
     } elseif (empty($error)) {
@@ -64,6 +75,24 @@ if (!empty($_POST)) {
         if (!move_uploaded_file($_FILES['image']['tmp_name'], '../uploads/produits/' . $fichier)) {
             $error['image'] = "Le téléchargement n'a pas pu être effectué";
         };
+    }
+
+    if (empty($error)) {
+        $sql = "INSERT INTO produit (reference, nom, description, prix, stock, image, id_categorie) VALUES (:ref, :nom, :desc, :prix, :stock, :image, :cat)";
+        try {
+            $pdo->prepare($sql)->execute([
+                "ref"   => $reference,
+                "nom"   => $nom,
+                "desc"  => $description,
+                "prix"  => empty($prix) ? 0 : $prix,
+                "stock" => empty($stock) ? 0 : $stock,
+                "image" => $fichier,
+                "cat"   => $categorie
+            ]);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        header('Location: ./index.php');
     }
 }
 

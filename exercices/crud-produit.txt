@@ -1,0 +1,36 @@
+CRUD pour les produits
+
+1 - Lister les produits : produits/index.php
+
+    - lire tous les produits en BDD
+    - afficher dans un tableau (HTML) une ligne par produit (référence, nom, stock)
+
+2 - Créer un nouveau produit : produits/new.php
+
+    - formulaire
+        - champs de saisie
+            * catégorie : liste déroulante
+            * (image : dans uploads/produits/{reference-timestamp.ext})
+        - validations : ok
+        - insertion dans la base de données
+        - redirection vers la liste des produits
+
+3 - Visualiser les détails d'un produit : produits/show.php?id=X
+
+    - lire les données du produit dans la BDD (WHERE)
+    - afficher les données du produit
+
+4 - Modifier un produit : produits/modify.php?id=X
+
+    - lire les données du produit dans la BDD (WHERE)
+    - formulaire (champs initialisés avec les valeurs lues dans la BDD)
+    - validation : ok
+    - mise à jour de la base de données
+    - redirection vers la liste des produits
+
+5 - Supprimer un produit : produits/delete?id=X
+
+    - supprimer le produit dans la BDD
+    - redirection vers la liste des produits
+
+    

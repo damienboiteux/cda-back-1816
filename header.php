@@ -27,14 +27,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pricing</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <?php
 
-                    $dsn = "mysql:host=localhost;dbname=phpcda;charset=utf8";
-                    $username = "root";
-                    $password = "";
+                    <!-- <?php //if (!isset($menu_produit)) { 
+                            ?> -->
+                    <?php if ($_SERVER['REQUEST_URI'] != '/produits/test.php') { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/produits/index.php">Produit</a>
+                        </li>
+                    <?php } ?>
+                    <?php
 
                     require 'utils/bdd.php';
 

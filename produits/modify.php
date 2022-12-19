@@ -111,7 +111,7 @@ if (!empty($_POST)) {
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-        $_SESSION['messages'][] = "Le produit a été modifié";
+        ajoute_message("Le produit a été modifié", "primary");
         header('Location: ./index.php');
     }
 } else {

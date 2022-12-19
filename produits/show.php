@@ -43,4 +43,4 @@ if (!empty($_GET['id'])) {
 
 <a href="./index.php" class="btn btn-primary mt-4">Retour à la liste</a>
 
-<?php require '../footer.php'; ?>git branch
+<?php require '../footer.php'; ?>

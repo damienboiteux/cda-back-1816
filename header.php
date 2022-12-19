@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require "utils/utilitaires.php"; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -60,8 +61,7 @@
         </div>
     </nav>
 
-
-
+    <?php affiche_messages(); ?>
 
     <div class="container">
         <div class="row">

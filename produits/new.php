@@ -93,7 +93,7 @@ if (!empty($_POST)) {
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-        $_SESSION['messages'][] = "Le produit a été ajouté";
+        ajoute_message("Le produit a été ajouté", "primary");
         header('Location: ./index.php');
     }
 }

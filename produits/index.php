@@ -36,7 +36,7 @@ $produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                     <a href="./show.php?id=<?= $produit['id']; ?>" class="btn btn-success">Voir</a>
                     <a href="./modify.php?id=<?= $produit['id']; ?>" class="btn btn-warning">Modifier</a>
-                    <a href="./delete.php?id=<?= $produit['id']; ?>" class="btn btn-danger">Supprimer</a>
+                    <a href="./delete.php?id=<?= $produit['id']; ?>" class="btn btn-danger" onclick="return confirm('Etes-vous certain de vouloir supprimer ce produit ?');">Supprimer</a>
                 </td>
             </tr>
         <?php } ?>
